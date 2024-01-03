@@ -13,7 +13,7 @@ def hello():
 @application.route('/mohan',methods=['GET'])
 def check():
     """New Function"""
-    return "Mohan is in KITS College"
+    return "Abhinav is in KITS College"
 '''
 #First let's read the pickle file
 with open("House_Price.pkl",'rb') as f:
