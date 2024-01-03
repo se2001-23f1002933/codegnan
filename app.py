@@ -2,15 +2,15 @@ from flask import Flask,render_template,request
 import pickle
 import numpy as np
 #Create a Flask Object
-app=Flask(__name__)
+application=Flask(__name__)
 #Decorator
 '''
-@app.route('/')
+@application.route('/')
 def hello():
     """Test Function"""
     return "Welcome to the Flask"
 
-@app.route('/mohan',methods=['GET'])
+@application.route('/mohan',methods=['GET'])
 def check():
     """New Function"""
     return "Mohan is in KITS College"
@@ -19,11 +19,11 @@ def check():
 with open("House_Price.pkl",'rb') as f:
     model=pickle.load(f)
 
-@app.route('/',methods=['GET'])
+@application.route('/',methods=['GET'])
 def home():
     return render_template('index.html')
 
-@app.route('/predict',methods=['POST'])
+@application.route('/predict',methods=['POST'])
 def predict():
     Rooms=int(request.form['bedrooms'])
     Bathrooms=int(request.form['bathrooms'])
@@ -39,4 +39,4 @@ def predict():
     #print(prediction)
     # Now we will pass the predicted data to the template
     return render_template('index.html',prediction=prediction)
-app.run()
+application.run()
